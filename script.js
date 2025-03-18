@@ -1,8 +1,8 @@
 const button = document.getElementById('button');
 const countdown = document.getElementById('countdown');
-const stop = document.getElementById('stop');
+const pause = document.getElementById('pause');
 const title = document.getElementById('title');
-
+let running = false;
 
 let timeleft = 1500; //25 minutes
 let interval;
@@ -16,7 +16,12 @@ const update_countdown = () => {
 };
 
 const start_countdown = () => {
+  if (running) {
+    return;
+  }
+
   interval = setInterval(() => {
+    running = true;
     timeleft--;
     update_countdown();
     
@@ -24,12 +29,16 @@ const start_countdown = () => {
       clearInterval(interval);
       alert("Time's up!");
       timeleft = 1500;
+      running = false;
       update_countdown();
     }
   }, 1000)
 };
 
-const pause_countdown = () => clearInterval(interval);
+const pause_countdown = () => {
+  clearInterval(interval);
+  running = false;
+};
 
 button.addEventListener("click", start_countdown);
-stop.addEventListener("click", pause_countdown);
+pause.addEventListener("click", pause_countdown);
