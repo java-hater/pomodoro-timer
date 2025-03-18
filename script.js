@@ -1,8 +1,10 @@
 const button = document.getElementById('button');
 const countdown = document.getElementById('countdown');
 const stop = document.getElementById('stop');
+const title = document.getElementById('title');
 
-let timeleft = 1500;
+
+let timeleft = 1500; //25 minutes
 let interval;
 
 const update_countdown = () => {
@@ -10,6 +12,7 @@ const update_countdown = () => {
   const secs = timeleft % 60;
 
   countdown.innerHTML = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2,'0')}`;
+  title.innerHTML = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2,'0')} - Pomodoro`;
 };
 
 const start_countdown = () => {
