@@ -1,0 +1,86 @@
+:root {
+    --focus: #086788;
+    --short: #D1F0B1;
+    --long: #B6CB9E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--focus);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
+}
+
+.top-bar {
+    padding: 1cm;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.15cm;
+    padding: 0.5cm;
+    margin: 1cm;
+}
+
+.pomotype {
+    /*These are used to change the background
+    color and timer amount.*/
+    display: flex;
+    flex-direction: row;
+}
+
+.small-button {
+    border:none;
+    border-radius: 0.1cm;
+    padding: 0.1cm;
+    color:white;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.small-button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.countdown {
+    font-size: 3.5cm;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.5cm;
+}
+
+.count-button {
+    font-size: 0.8cm;
+    letter-spacing: 1px;
+    padding: 0.1cm 0.5cm;
+    border-radius: 0.1cm;
+    border:none;
+
+    cursor:pointer;
+    color: var(--focus);
+}
+
+.count-button:focus {
+    transform: translateY(2px);
+}

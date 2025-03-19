@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body>
-    <div id="container">
-        <h1>Pomodoro Timer</h1>
-        <p id="countdown">25:00</p>
-        <button id="button">Start</button>
-        <button id="pause">Pause</button>
+<body id="body">
+    <div class="container">
+        <div class = "pomotype">
+            <button class="small-button" id="pomodoro-button">Pomodoro</button>
+            <button class="small-button" id="short-break-button">Short Break</button>
+            <button class="small-button" id="long-break-button">Long Break</button>
+        </div>
+        <p class="countdown" id="countdown">25:00</p>
+        <div class="buttons">
+            <button class="count-button" id="button">Start</button>
+            <button class="count-button" id="pause">Pause</button>
+        </div>
     </div>
     <script src="script.js"></script>
     
