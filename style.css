@@ -56,8 +56,10 @@ body {
     font-size: 20px;
     padding-right: 10px;
     padding-left: 10px;
+    cursor: pointer;
 }
-.small-button:active {
+
+#pomodoro-button {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
