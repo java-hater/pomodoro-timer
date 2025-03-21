@@ -3,6 +3,7 @@ const countdown = document.getElementById('countdown');
 const pause = document.getElementById('pause');
 const title = document.getElementById('title');
 const body = document.getElementById('body');
+const break_counter = document.getElementById('break-counter');
 const count_button = document.getElementsByClassName('count-button');
 const timer_button = document.getElementsByClassName('small-button');
 
@@ -10,8 +11,9 @@ let running = false;
 let interval;
 let current_timer = 0; //0 = Pomodoro; 1 = Short Break; 2 = Long Break; 3 = Debug;
 const colors = ["#086788", "#75BBA7", "#AA968A"];
-const times = [1500, 300, 1200, 10]; //20 minutes, 5 minutes, and 20 minutes respectively
+const times = [1500, 300, 1200]; //20 minutes, 5 minutes, and 20 minutes respectively
 let timeleft = times[current_timer];
+let count = 0;
 
 const update_countdown = () => {
   const mins = Math.floor(timeleft / 60);
@@ -32,6 +34,14 @@ const start_countdown = () => {
     update_countdown();
     
     if(timeleft === 0) {
+      // Super in-elegent but it's fiiiine
+      if(current_timer === 1) {
+        count++;
+      }
+      if (current_timer === 2) {
+        count = 0;
+      }
+      counterHandler();
       clearInterval(interval);
       play_sound();
       timeleft = times[current_timer];
@@ -77,10 +87,9 @@ const longhandler = () => {
   current_timer = 2;
   timer_handler(times[current_timer]);
 };
-const debug = () => {
-  timer_button[current_timer].style.backgroundColor = "rgba(0,0,0,0)";
-  current_timer = 3;
-  timer_handler(times[current_timer]);
+
+function counterHandler() {
+  break_counter.innerHTML = `${count.toString()}`
 }
 
 button.addEventListener("click", start_countdown);
@@ -88,4 +97,4 @@ pause.addEventListener("click", pause_countdown);
 timer_button[0].addEventListener("click", focushandler);
 timer_button[1].addEventListener("click", shorthandler);
 timer_button[2].addEventListener("click", longhandler);
-timer_button[3].addEventListener("click", debug);
+
